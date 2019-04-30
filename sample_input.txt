@@ -1,0 +1,21 @@
+request("D", "1:2", "ip 333.168.10.1", "ip 204.153.111.253", 2, 4, "TCP", "icmp 3:2").
+//Simple ipv4 request
+Output:
+true.
+
+request("D", "2:4", "ipv6 FF01:0:0:0:0:0:0:101", "ipv6 FF11:2555:2551:5666:3672:2677:4357:101", 6, 4, "UDP", "icmpv6 7:3").
+//Simple ipv6 request
+Output:
+true.
+
+request("E", "1:2", "ip 192.168.10.1", "ip 142.153.111.253", 2, 4, "TCP", "icmp 3:2").
+// Adapter E has been dropped using range.
+Output:
+Ethernet Rejected.
+ICMP Rejected.
+false.
+
+request("A", "10:14", "ipv6 FF01:463:256:267:346:A464:457B:1033", "ipv6 CF11:2555:2551:5666:3672:2677:4357:101", 4, 3, "TCP", "icmpv6 2:5").
+Output:
+Adapter Rejected.
+false.
